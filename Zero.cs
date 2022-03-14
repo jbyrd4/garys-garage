@@ -2,12 +2,13 @@ using System;
 
 namespace Garage
 {
-    public class Zero : Vehicle // Electric motorcycle
+    public class Zero : Vehicle, IElectricVehicle // Electric motorcycle
     {
         public double BatteryKWh { get; set; }
+        public int CurrentChargePercentage {get; set;} = 0;
         public void ChargeBattery()
         {
-            // method definition omitted
+            CurrentChargePercentage = 100;
         }
 
         public override void Drive()
@@ -24,7 +25,7 @@ namespace Garage
         {
             Console.WriteLine($"The {MainColor} Zero gently glides to a stop.");
         }
-        public  Zero(double battery, string color, int seats)
+        public Zero(double battery, string color, int seats)
         {
             BatteryKWh = battery;
             MainColor = color;
